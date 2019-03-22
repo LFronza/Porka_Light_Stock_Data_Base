@@ -1,1 +1,11 @@
- 
+Como "Hello World" nosso sistema deveria ser capaz de registrar dados.
+
+Para provar que está funcionando, tirei 5 prints:
+
+Descrição dos prints:
+
+1: Cadastro de usuário nos sistema;
+2: Sistema informa que usuário foi cadastrado;
+3: Log-in com novo usuário;
+4: log-in aceito;
+5: Dado do usuário gravado no banco de dados;
