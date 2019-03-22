@@ -1,0 +1,7 @@
+version: '2'
+services:
+    porka_light_stock_data_base-sonar:
+        image: sonarqube:7.1
+        ports:
+            - 9001:9000
+            - 9092:9092

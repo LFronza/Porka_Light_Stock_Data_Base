@@ -1,0 +1,38 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.porkalite.sdb",
+            "nativeLanguage": "pt-br"
+        },
+        "jhipsterVersion": "5.8.2",
+        "applicationType": "monolith",
+        "baseName": "Porka_Light_Stock_Data_Base",
+        "packageName": "com.porkalite.sdb",
+        "packageFolder": "com/porkalite/sdb",
+        "serverPort": "8080",
+        "authenticationType": "session",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "mysql",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "rememberMeKey": "ea5766ad74e1fd6cc6df25ad24b8fc2ac0ec1c0a710bc722b174f677e65ca3edbf888adbf13a644acd193c525bd327ce55f8",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": true,
+        "nativeLanguage": "pt-br",
+        "languages": ["pt-br"]
+    }
+}
