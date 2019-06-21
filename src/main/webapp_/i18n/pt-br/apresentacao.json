@@ -1,0 +1,22 @@
+{
+    "porkaLightStockDataBaseApp": {
+        "apresentacao": {
+            "home": {
+                "title": "Apresentacaos",
+                "createLabel": "Criar novo Apresentacao",
+                "createOrEditLabel": "Criar ou editar Apresentacao"
+            },
+            "created": "Um novo Apresentacao foi criado com o identificador {{ param }}",
+            "updated": "Um Apresentacao foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Apresentacao foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Apresentacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Apresentacao"
+            },
+            "nome": "Nome",
+            "produto": "Produto"
+        }
+    }
+}

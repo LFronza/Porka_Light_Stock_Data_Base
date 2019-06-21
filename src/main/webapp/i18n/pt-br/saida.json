@@ -1,0 +1,23 @@
+{
+    "porkaLightStockDataBaseApp": {
+        "saida": {
+            "home": {
+                "title": "Saidas",
+                "createLabel": "Criar nova Saida",
+                "createOrEditLabel": "Criar ou editar Saida"
+            },
+            "created": "Um nova Saida foi criada",
+            "updated": "A Saida foi atualizada",
+            "deleted": "A Saida foi deletada",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir esta Saida?"
+            },
+            "detail": {
+                "title": "Saida"
+            },
+            "dtSaida": "Data de Saida",
+            "qtSaida": "Quantidade",
+            "produto": "Produto"
+        }
+    }
+}

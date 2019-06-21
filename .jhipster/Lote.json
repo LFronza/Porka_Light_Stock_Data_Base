@@ -1,0 +1,55 @@
+{
+    "name": "Lote",
+    "fields": [
+        {
+            "fieldName": "dtEntrada",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "qtEntrada",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dtVencimento",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "nrLote",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "unique",
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "fornecedor",
+            "otherEntityRelationshipName": "lote",
+            "relationshipName": "fornecedor",
+            "otherEntityField": "nmFornecedor"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "produto",
+            "otherEntityRelationshipName": "ltoe",
+            "relationshipValidateRules": "required",
+            "relationshipName": "produto",
+            "otherEntityField": "nmProduto"
+        }
+    ],
+    "changelogDate": "20190614001701",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "lote",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

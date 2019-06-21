@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-lote-heading" jhiTranslate="porkaLightStockDataBaseApp.lote.home.createOrEditLabel">Create or edit a Lote</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!lote.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="lote.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.lote.dtEntrada" for="field_dtEntrada">Dt Entrada</label>
+                    <div class="input-group">
+                        <input id="field_dtEntrada" type="text" class="form-control" name="dtEntrada" ngbDatepicker  #dtEntradaDp="ngbDatepicker" [(ngModel)]="lote.dtEntrada"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dtEntradaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dtEntrada?.dirty && editForm.controls.dtEntrada?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dtEntrada?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.lote.qtEntrada" for="field_qtEntrada">Qt Entrada</label>
+                    <input type="number" class="form-control" name="qtEntrada" id="field_qtEntrada"
+                        [(ngModel)]="lote.qtEntrada" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.lote.dtVencimento" for="field_dtVencimento">Dt Vencimento</label>
+                    <div class="input-group">
+                        <input id="field_dtVencimento" type="text" class="form-control" name="dtVencimento" ngbDatepicker  #dtVencimentoDp="ngbDatepicker" [(ngModel)]="lote.dtVencimento"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dtVencimentoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.lote.nrLote" for="field_nrLote">Nr Lote</label>
+                    <input type="number" class="form-control" name="nrLote" id="field_nrLote"
+                        [(ngModel)]="lote.nrLote" required/>
+                    <div [hidden]="!(editForm.controls.nrLote?.dirty && editForm.controls.nrLote?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nrLote?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.nrLote?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.lote.fornecedor" for="field_fornecedor">Fornecedor</label>
+                    <select class="form-control" id="field_fornecedor" name="fornecedor" [(ngModel)]="lote.fornecedor" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="fornecedorOption.id === lote.fornecedor?.id ? lote.fornecedor : fornecedorOption" *ngFor="let fornecedorOption of fornecedors; trackBy: trackFornecedorById">{{fornecedorOption.nmFornecedor}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.lote.produto" for="field_produto">Produto</label>
+                    <select class="form-control" id="field_produto" name="produto" [(ngModel)]="lote.produto"  required>
+                        <option *ngIf="!editForm.value.produto" [ngValue]="null" selected></option>
+                        <option [ngValue]="produtoOption.id === lote.produto?.id ? lote.produto : produtoOption" *ngFor="let produtoOption of produtos; trackBy: trackProdutoById">{{produtoOption.nmProduto}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.produto?.dirty && editForm.controls.produto?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.produto?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

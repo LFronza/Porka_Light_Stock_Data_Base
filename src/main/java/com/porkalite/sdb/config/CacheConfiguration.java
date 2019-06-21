@@ -40,6 +40,17 @@ public class CacheConfiguration {
             cm.createCache(com.porkalite.sdb.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(com.porkalite.sdb.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(com.porkalite.sdb.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
+            cm.createCache(com.porkalite.sdb.domain.Produto.class.getName(), jcacheConfiguration);
+            cm.createCache(com.porkalite.sdb.domain.Produto.class.getName() + ".saidas", jcacheConfiguration);
+            cm.createCache(com.porkalite.sdb.domain.Produto.class.getName() + ".ltoes", jcacheConfiguration);
+            cm.createCache(com.porkalite.sdb.domain.Saida.class.getName(), jcacheConfiguration);
+            cm.createCache(com.porkalite.sdb.domain.Apresentacao.class.getName(), jcacheConfiguration);
+            cm.createCache(com.porkalite.sdb.domain.Apresentacao.class.getName() + ".produtos", jcacheConfiguration);
+            cm.createCache(com.porkalite.sdb.domain.Grupo.class.getName(), jcacheConfiguration);
+            cm.createCache(com.porkalite.sdb.domain.Grupo.class.getName() + ".produtos", jcacheConfiguration);
+            cm.createCache(com.porkalite.sdb.domain.Lote.class.getName(), jcacheConfiguration);
+            cm.createCache(com.porkalite.sdb.domain.Fornecedor.class.getName(), jcacheConfiguration);
+            cm.createCache(com.porkalite.sdb.domain.Fornecedor.class.getName() + ".lotes", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

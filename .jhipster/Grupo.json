@@ -1,0 +1,30 @@
+{
+    "name": "Grupo",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique",
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "produto",
+            "otherEntityRelationshipName": "grupo",
+            "relationshipName": "produto"
+        }
+    ],
+    "changelogDate": "20190614001700",
+    "entityTableName": "grupo",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

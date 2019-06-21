@@ -1,0 +1,94 @@
+
+entity Produto {
+	cdProduto Integer unique,
+    nmProduto String required,
+    cstCompra Float,
+    cstVerder Float,
+    dtVencimento LocalDate
+}
+
+entity Saida {
+	dtSaida LocalDate required,
+    qtSaida Integer required
+}
+entity Apresentacao {
+	nome String unique required
+}
+entity Grupo {
+	nome String unique required
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Lote {
+	dtEntrada LocalDate required,
+	qtEntrada Integer,
+	dtVencimento LocalDate,
+    nrLote Integer unique required
+}
+
+entity Fornecedor {
+	nmFornecedor String required,
+    endereco String,
+    cidade String,
+    cnpj Integer,
+    telefone Integer
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+
+*entity Task {
+*	title String,
+*	description String
+*}
+ */
+/**
+ * The Employee entity.
+ */
+
+/* ----UM PRA UM----
+*relationship OneToOne {
+*	Country{region} to Region
+*}
+*
+*  ---- MUITOS PRA MUITOS----
+*relationship ManyToMany {
+*	Job{task(title)} to Task{job}
+*}
+*/
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+Produto{saida} to Saida{produto(nmProduto)required}
+}
+relationship OneToMany {
+  Apresentacao{produto} to Produto{apresentacao(nome)}
+}
+relationship OneToMany {
+  Fornecedor{lote} to Lote{fornecedor(nmFornecedor)}
+}
+relationship OneToMany {
+  Grupo{produto} to Produto{grupo(nome)required}
+}
+
+relationship OneToMany {
+  Produto{ltoe} to Lote{produto(nmProduto)required}
+}
+
+
+
+
+// Set pagination options <-----
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few <-----
+//service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

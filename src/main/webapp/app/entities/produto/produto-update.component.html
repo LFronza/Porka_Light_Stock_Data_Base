@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-produto-heading" jhiTranslate="porkaLightStockDataBaseApp.produto.home.createOrEditLabel">Create or edit a Produto</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!produto.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="produto.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.produto.cdProduto" for="field_cdProduto">Cd Produto</label>
+                    <input type="number" class="form-control" name="cdProduto" id="field_cdProduto"
+                        [(ngModel)]="produto.cdProduto" />
+                    <div [hidden]="!(editForm.controls.cdProduto?.dirty && editForm.controls.cdProduto?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.cdProduto?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.produto.nmProduto" for="field_nmProduto">Nm Produto</label>
+                    <input type="text" class="form-control" name="nmProduto" id="field_nmProduto"
+                        [(ngModel)]="produto.nmProduto" required/>
+                    <div [hidden]="!(editForm.controls.nmProduto?.dirty && editForm.controls.nmProduto?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nmProduto?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.produto.cstCompra" for="field_cstCompra">Cst Compra</label>
+                    <input type="number" class="form-control" name="cstCompra" id="field_cstCompra"
+                        [(ngModel)]="produto.cstCompra" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.produto.cstVerder" for="field_cstVerder">Cst Verder</label>
+                    <input type="number" class="form-control" name="cstVerder" id="field_cstVerder"
+                        [(ngModel)]="produto.cstVerder" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.produto.dtVencimento" for="field_dtVencimento">Dt Vencimento</label>
+                    <div class="input-group">
+                        <input id="field_dtVencimento" type="text" class="form-control" name="dtVencimento" ngbDatepicker  #dtVencimentoDp="ngbDatepicker" [(ngModel)]="produto.dtVencimento"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dtVencimentoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.produto.apresentacao" for="field_apresentacao">Apresentacao</label>
+                    <select class="form-control" id="field_apresentacao" name="apresentacao" [(ngModel)]="produto.apresentacao" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="apresentacaoOption.id === produto.apresentacao?.id ? produto.apresentacao : apresentacaoOption" *ngFor="let apresentacaoOption of apresentacaos; trackBy: trackApresentacaoById">{{apresentacaoOption.nome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.produto.grupo" for="field_grupo">Grupo</label>
+                    <select class="form-control" id="field_grupo" name="grupo" [(ngModel)]="produto.grupo"  required>
+                        <option *ngIf="!editForm.value.grupo" [ngValue]="null" selected></option>
+                        <option [ngValue]="grupoOption.id === produto.grupo?.id ? produto.grupo : grupoOption" *ngFor="let grupoOption of grupos; trackBy: trackGrupoById">{{grupoOption.nome}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.grupo?.dirty && editForm.controls.grupo?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.grupo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

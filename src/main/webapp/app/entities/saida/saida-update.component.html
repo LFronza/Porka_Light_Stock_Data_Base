@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-saida-heading" jhiTranslate="porkaLightStockDataBaseApp.saida.home.createOrEditLabel">Create or edit a Saida</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!saida.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="saida.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.saida.dtSaida" for="field_dtSaida">Dt Saida</label>
+                    <div class="input-group">
+                        <input id="field_dtSaida" type="text" class="form-control" name="dtSaida" ngbDatepicker  #dtSaidaDp="ngbDatepicker" [(ngModel)]="saida.dtSaida"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dtSaidaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dtSaida?.dirty && editForm.controls.dtSaida?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dtSaida?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.saida.qtSaida" for="field_qtSaida">Qt Saida</label>
+                    <input type="number" class="form-control" name="qtSaida" id="field_qtSaida"
+                        [(ngModel)]="saida.qtSaida" required/>
+                    <div [hidden]="!(editForm.controls.qtSaida?.dirty && editForm.controls.qtSaida?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.qtSaida?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.qtSaida?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.saida.produto" for="field_produto">Produto</label>
+                    <select class="form-control" id="field_produto" name="produto" [(ngModel)]="saida.produto"  required>
+                        <option *ngIf="!editForm.value.produto" [ngValue]="null" selected></option>
+                        <option [ngValue]="produtoOption.id === saida.produto?.id ? saida.produto : produtoOption" *ngFor="let produtoOption of produtos; trackBy: trackProdutoById">{{produtoOption.nmProduto}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.produto?.dirty && editForm.controls.produto?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.produto?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

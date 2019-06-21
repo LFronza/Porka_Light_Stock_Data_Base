@@ -1,0 +1,26 @@
+{
+    "porkaLightStockDataBaseApp": {
+        "fornecedor": {
+            "home": {
+                "title": "Fornecedores",
+                "createLabel": "Criar novo Fornecedor",
+                "createOrEditLabel": "Criar ou editar Fornecedor"
+            },
+            "created": "Um novo Fornecedor foi criado",
+            "updated": "O Fornecedor foi atualizado",
+            "deleted": "O Fornecedor foi deletado",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir este Fornecedor?"
+            },
+            "detail": {
+                "title": "Fornecedor"
+            },
+            "nmFornecedor": "Nm Fornecedor",
+            "endereco": "Endereço",
+            "cidade": "Cidade",
+            "cnpj": "Cnpj",
+            "telefone": "Telefone",
+            "lote": "Lote"
+        }
+    }
+}

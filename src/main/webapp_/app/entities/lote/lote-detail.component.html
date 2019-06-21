@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="lote">
+            <h2><span jhiTranslate="porkaLightStockDataBaseApp.lote.detail.title">Lote</span> {{lote.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.lote.dtEntrada">Dt Entrada</span></dt>
+                <dd>
+                    <span>{{lote.dtEntrada}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.lote.qtEntrada">Qt Entrada</span></dt>
+                <dd>
+                    <span>{{lote.qtEntrada}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.lote.dtVencimento">Dt Vencimento</span></dt>
+                <dd>
+                    <span>{{lote.dtVencimento}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.lote.nrLote">Nr Lote</span></dt>
+                <dd>
+                    <span>{{lote.nrLote}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.lote.fornecedor">Fornecedor</span></dt>
+                <dd>
+                    <div *ngIf="lote.fornecedor">
+                        <a [routerLink]="['/fornecedor', lote.fornecedor?.id, 'view']">{{lote.fornecedor?.nmFornecedor}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.lote.produto">Produto</span></dt>
+                <dd>
+                    <div *ngIf="lote.produto">
+                        <a [routerLink]="['/produto', lote.produto?.id, 'view']">{{lote.produto?.nmProduto}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/lote', lote.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

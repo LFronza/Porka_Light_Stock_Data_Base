@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-fornecedor-heading" jhiTranslate="porkaLightStockDataBaseApp.fornecedor.home.createOrEditLabel">Create or edit a Fornecedor</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!fornecedor.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="fornecedor.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.fornecedor.nmFornecedor" for="field_nmFornecedor">Nm Fornecedor</label>
+                    <input type="text" class="form-control" name="nmFornecedor" id="field_nmFornecedor"
+                        [(ngModel)]="fornecedor.nmFornecedor" required/>
+                    <div [hidden]="!(editForm.controls.nmFornecedor?.dirty && editForm.controls.nmFornecedor?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nmFornecedor?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.fornecedor.endereco" for="field_endereco">Endereco</label>
+                    <input type="text" class="form-control" name="endereco" id="field_endereco"
+                        [(ngModel)]="fornecedor.endereco" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.fornecedor.cidade" for="field_cidade">Cidade</label>
+                    <input type="text" class="form-control" name="cidade" id="field_cidade"
+                        [(ngModel)]="fornecedor.cidade" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.fornecedor.cnpj" for="field_cnpj">Cnpj</label>
+                    <input type="number" class="form-control" name="cnpj" id="field_cnpj"
+                        [(ngModel)]="fornecedor.cnpj" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="porkaLightStockDataBaseApp.fornecedor.telefone" for="field_telefone">Telefone</label>
+                    <input type="number" class="form-control" name="telefone" id="field_telefone"
+                        [(ngModel)]="fornecedor.telefone" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

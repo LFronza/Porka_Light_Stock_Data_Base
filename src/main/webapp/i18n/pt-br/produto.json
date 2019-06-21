@@ -1,0 +1,29 @@
+{
+    "porkaLightStockDataBaseApp": {
+        "produto": {
+            "home": {
+                "title": "Produtos",
+                "createLabel": "Criar novo Produto",
+                "createOrEditLabel": "Criar ou editar Produto"
+            },
+            "created": "Um novo Produto foi criado",
+            "updated": "O Produto foi atualizado",
+            "deleted": "O Produto foi deletado",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir este Produto?"
+            },
+            "detail": {
+                "title": "Produto"
+            },
+            "cdProduto": "Código do Produto",
+            "nmProduto": "Nome do Produto",
+            "cstCompra": "Custo de Compra",
+            "cstVerder": "Custo de Verder",
+            "dtVencimento": "Data de Vencimento",
+            "saida": "Saida",
+            "ltoe": "Lote",
+            "apresentacao": "Apresentação",
+            "grupo": "Grupo"
+        }
+    }
+}

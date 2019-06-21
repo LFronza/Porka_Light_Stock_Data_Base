@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="produto">
+            <h2><span jhiTranslate="porkaLightStockDataBaseApp.produto.detail.title">Produto</span> {{produto.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.produto.cdProduto">Cd Produto</span></dt>
+                <dd>
+                    <span>{{produto.cdProduto}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.produto.nmProduto">Nm Produto</span></dt>
+                <dd>
+                    <span>{{produto.nmProduto}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.produto.cstCompra">Cst Compra</span></dt>
+                <dd>
+                    <span>{{produto.cstCompra}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.produto.cstVerder">Cst Verder</span></dt>
+                <dd>
+                    <span>{{produto.cstVerder}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.produto.dtVencimento">Dt Vencimento</span></dt>
+                <dd>
+                    <span>{{produto.dtVencimento}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.produto.apresentacao">Apresentacao</span></dt>
+                <dd>
+                    <div *ngIf="produto.apresentacao">
+                        <a [routerLink]="['/apresentacao', produto.apresentacao?.id, 'view']">{{produto.apresentacao?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.produto.grupo">Grupo</span></dt>
+                <dd>
+                    <div *ngIf="produto.grupo">
+                        <a [routerLink]="['/grupo', produto.grupo?.id, 'view']">{{produto.grupo?.nome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/produto', produto.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

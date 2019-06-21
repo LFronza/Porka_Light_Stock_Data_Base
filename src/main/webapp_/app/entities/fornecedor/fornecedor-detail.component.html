@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fornecedor">
+            <h2><span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.detail.title">Fornecedor</span> {{fornecedor.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.nmFornecedor">Nm Fornecedor</span></dt>
+                <dd>
+                    <span>{{fornecedor.nmFornecedor}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.endereco">Endereco</span></dt>
+                <dd>
+                    <span>{{fornecedor.endereco}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.cidade">Cidade</span></dt>
+                <dd>
+                    <span>{{fornecedor.cidade}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.cnpj">Cnpj</span></dt>
+                <dd>
+                    <span>{{fornecedor.cnpj}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.telefone">Telefone</span></dt>
+                <dd>
+                    <span>{{fornecedor.telefone}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fornecedor', fornecedor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

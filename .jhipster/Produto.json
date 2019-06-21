@@ -1,0 +1,69 @@
+{
+    "name": "Produto",
+    "fields": [
+        {
+            "fieldName": "cdProduto",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "nmProduto",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cstCompra",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "cstVerder",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "dtVencimento",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "saida",
+            "otherEntityRelationshipName": "produto",
+            "relationshipName": "saida"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "lote",
+            "otherEntityRelationshipName": "produto",
+            "relationshipName": "ltoe"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "apresentacao",
+            "otherEntityRelationshipName": "produto",
+            "relationshipName": "apresentacao",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "grupo",
+            "otherEntityRelationshipName": "produto",
+            "relationshipValidateRules": "required",
+            "relationshipName": "grupo",
+            "otherEntityField": "nome"
+        }
+    ],
+    "changelogDate": "20190614001657",
+    "entityTableName": "produto",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

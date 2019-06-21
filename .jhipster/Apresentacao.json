@@ -1,0 +1,30 @@
+{
+    "name": "Apresentacao",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique",
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "produto",
+            "otherEntityRelationshipName": "apresentacao",
+            "relationshipName": "produto"
+        }
+    ],
+    "changelogDate": "20190614001659",
+    "entityTableName": "apresentacao",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

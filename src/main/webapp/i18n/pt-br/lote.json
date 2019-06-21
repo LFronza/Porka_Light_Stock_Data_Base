@@ -1,0 +1,26 @@
+{
+    "porkaLightStockDataBaseApp": {
+        "lote": {
+            "home": {
+                "title": "Lotes",
+                "createLabel": "Criar novo Lote",
+                "createOrEditLabel": "Criar ou editar Lote"
+            },
+            "created": "Um novo Lote foi criado",
+            "updated": "O Lote foi atualizado",
+            "deleted": "O Lote foi deletado",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir este Lote?"
+            },
+            "detail": {
+                "title": "Lote"
+            },
+            "dtEntrada": "Data de Entrada",
+            "qtEntrada": "Quantidade",
+            "dtVencimento": "Data de Vencimento",
+            "nrLote": "Numero do Lote",
+            "fornecedor": "Fornecedor",
+            "produto": "Produto"
+        }
+    }
+}

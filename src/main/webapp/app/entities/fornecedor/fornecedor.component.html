@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.home.title">Fornecedors</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fornecedor" [routerLink]="['/fornecedor/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="porkaLightStockDataBaseApp.fornecedor.home.createLabel">
+            Create new Fornecedor
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="fornecedors">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.nmFornecedor">Nm Fornecedor</span></th>
+            <th><span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.endereco">Endereco</span></th>
+            <th><span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.cidade">Cidade</span></th>
+            <th><span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.cnpj">Cnpj</span></th>
+            <th><span jhiTranslate="porkaLightStockDataBaseApp.fornecedor.telefone">Telefone</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fornecedor of fornecedors ;trackBy: trackId">
+                <td><a [routerLink]="['/fornecedor', fornecedor.id, 'view' ]">{{fornecedor.id}}</a></td>
+                <td>{{fornecedor.nmFornecedor}}</td>
+                <td>{{fornecedor.endereco}}</td>
+                <td>{{fornecedor.cidade}}</td>
+                <td>{{fornecedor.cnpj}}</td>
+                <td>{{fornecedor.telefone}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/fornecedor', fornecedor.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/fornecedor', fornecedor.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'fornecedor', { outlets: { popup: fornecedor.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

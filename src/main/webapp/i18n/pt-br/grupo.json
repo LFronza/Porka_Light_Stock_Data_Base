@@ -1,0 +1,22 @@
+{
+    "porkaLightStockDataBaseApp": {
+        "grupo": {
+            "home": {
+                "title": "Grupos",
+                "createLabel": "Criar novo Grupo",
+                "createOrEditLabel": "Criar ou editar Grupo"
+            },
+            "created": "Um novo Grupo foi criado",
+            "updated": "O Grupo foi atualizado",
+            "deleted": "O Grupo foi deletado",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir este Grupo?"
+            },
+            "detail": {
+                "title": "Grupo"
+            },
+            "nome": "Nome",
+            "produto": "Produto"
+        }
+    }
+}

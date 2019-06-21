@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="saida">
+            <h2><span jhiTranslate="porkaLightStockDataBaseApp.saida.detail.title">Saida</span> {{saida.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.saida.dtSaida">Dt Saida</span></dt>
+                <dd>
+                    <span>{{saida.dtSaida}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.saida.qtSaida">Qt Saida</span></dt>
+                <dd>
+                    <span>{{saida.qtSaida}}</span>
+                </dd>
+                <dt><span jhiTranslate="porkaLightStockDataBaseApp.saida.produto">Produto</span></dt>
+                <dd>
+                    <div *ngIf="saida.produto">
+                        <a [routerLink]="['/produto', saida.produto?.id, 'view']">{{saida.produto?.nmProduto}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/saida', saida.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+{
+    "name": "Fornecedor",
+    "fields": [
+        {
+            "fieldName": "nmFornecedor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "endereco",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cidade",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cnpj",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "telefone",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "lote",
+            "otherEntityRelationshipName": "fornecedor",
+            "relationshipName": "lote"
+        }
+    ],
+    "changelogDate": "20190614001702",
+    "entityTableName": "fornecedor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
